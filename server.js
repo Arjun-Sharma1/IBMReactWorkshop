@@ -9,23 +9,17 @@ io.on('connection', function(socket) {
 
   console.log('User ' + socket.id + ' has connected');
 
-
-  socket.on('connected', function() {
-    console.log("New User Connected, sending messages list")
-    socket.emit('serverResponse', {message: messages});
-  });
-
   socket.on('disconnect', function() {
     console.log('user disconnected');
   });
 
-  socket.on('message', function(user, msg) {
-    console.log(user+": "+msg);
-    messages.push(user+": "+msg);
-    console.log(messages);
-    //Send this message to everyone thats connected
-    io.local.emit('serverResponse', {message: messages});
-  });
+  //TODO: On user connection, send all messages currently stored on server
+  //Hint socket.emit() sends data only to client;
+
+
+  //TODO: When message recieved, store into messageList and broadcast to all connected clients
+  //Hint io.local.emit() sends data to call clients;
+
 
 });
 

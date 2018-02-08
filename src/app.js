@@ -6,16 +6,16 @@ var localUser='';
 class app extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      message: '',
-      messagesList: []
-    };
+    //TODO: Create state variable for message being sent and messageList that was retrived from server
+
+    //Binds the functions below to be able to access variables in this object
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     socket.emit("connected");
   }
 
   handleChange(event) {
+    //Used to dynamically update fields such as textboxes, radio buttons etc.
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -23,34 +23,24 @@ class app extends Component {
 
   handleSubmit(event) {
     console.log(this.state.message);
-    socket.emit("message", localUser, this.state.message);
+    //TODO: Send message to server using socket,io
+
     //Stop from refreshing the page
     event.preventDefault();
   }
 
   render() {
-    socket.on('serverResponse', function(response) {
-      this.setState({messagesList:response.message});
-    }.bind(this));
+    //TODO: Handle messages retrived from socket.io
 
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Write a message to Everyone!</h1>
         </header>
-        <ul>
-          {this.state.messagesList.map(function(listValue,index) {
-            return <p key={index}>{listValue}</p>;
-          })}
-        </ul>
-        <div>
-          <form id="form1" onSubmit={this.handleSubmit} onChange={this.handleChange}>
-              <input className='textBox' id="message" name='message' value={this.state.message} placeholder="Type a Message"/>
-              <br></br>
-          </form>
-          <button onClick={this.handleSubmit}>Send Message</button>
-        </div>
-      </div>
+        //TODO: Dynamically update messages view that was retrieved from server
+
+        //TODO: Add textbox field for adding a new message and submit button
+
     );
   }
 }

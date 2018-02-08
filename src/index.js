@@ -10,7 +10,8 @@ ReactDOM.render((
     <div>
       <Switch>
         <Route exact path='/' component={landing}/>
-        <Route exact path='/chat' component={app}/>
+        //TODO: Add route for switching to actual app after name is chosen
+
       </Switch>
     </div>
   </BrowserRouter>

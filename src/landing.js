@@ -4,9 +4,8 @@ import { setLocalUser } from './app.js';
 class landing extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: ''
-    };
+    //TODO: Create state variables for name
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -18,12 +17,13 @@ class landing extends Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state.name);
-    setLocalUser(this.state.name);
+    //TODO:Add Local User
+
     //Stop from refreshing the page
     event.preventDefault();
-    //Redirect to chat page
-    this.props.history.push('/chat');
+
+    //TODO: Redirect to chat page
+
   }
 
   render() {
@@ -33,13 +33,7 @@ class landing extends Component {
         <header className="App-header">
           <h1 className="App-title">Choose Your Name!</h1>
         </header>
-        <div>
-          <form id="form1" onSubmit={this.handleSubmit} onChange={this.handleChange}>
-              <input className='textBox' id="name" name='name' value={this.state.message} placeholder="Type your name"/>
-              <br></br>
-          </form>
-          <button onClick={this.handleSubmit}>Submit Name</button>
-        </div>
+        //TODO: Add textbox and submit button for name
       </div>
     );
   }
