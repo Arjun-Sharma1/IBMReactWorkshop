@@ -41,9 +41,11 @@ class app extends Component {
 
         //TODO: Add textbox field for adding a new message and submit button
 
+      </div>
     );
   }
 }
+
 
 function setLocalUser(username) {
   localUser = username;
